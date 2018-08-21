@@ -20,11 +20,10 @@ Scout is dependent on
 Scout requires a MongoDB instance containing the NVD's datafeeds. "cve-search" is highly reccomended. 
 
 ```
-git clone directory
+git clone https://github.com/TheHairyJ/Scout
 
 cd directory
 
-pip install -r requirements.txt
 ```
 *Note: Editing of the source code may be required to correctly configure the database connection*  
 
