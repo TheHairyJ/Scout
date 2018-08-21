@@ -17,7 +17,7 @@ Scout is dependent on
 - pymongo
 
 ## Installation
-Scout requires a MongoDB instance containing the NVD's datafeeds. "cve-search" is highly reccomended. 
+Scout requires a MongoDB instance containing the NVD's datafeeds. "[cve-search](https://github.com/cve-search/cve-search)" is highly reccomended. 
 
 ```
 git clone https://github.com/TheHairyJ/Scout
