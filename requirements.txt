@@ -1,0 +1,10 @@
+-i https://pypi.org/simple
+censys==0.0.8
+certifi==2018.8.13
+chardet==3.0.4
+editdistance==0.4
+idna==2.7
+netaddr==0.7.19
+pymongo==3.7.1
+requests==2.19.1
+urllib3==1.23
