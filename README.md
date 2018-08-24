@@ -41,7 +41,7 @@ cd Scout
 
 pip install -r requirements.txt
 ```
-Place your censys API key and secret in secrets.txt
+Place your censys API key and secret in a new file called secrets.txt
 
 
 *Note: Editing of the source code may be required to correctly configure the database connection. Specifically the pymongo assignments.*
