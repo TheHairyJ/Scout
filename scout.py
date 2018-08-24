@@ -20,21 +20,25 @@ parser.parse_args()
 def print_scout():
 
     print(r"""
- ______     ______     ______     __  __     ______  
-/\  ___\   /\  ___\   /\  __ \   /\ \/\ \   /\__  _\ 
-\ \___  \  \ \ \____  \ \ \/\ \  \ \ \_\ \  \/_/\ \/ 
- \/\_____\  \ \_____\  \ \_____\  \ \_____\    \ \_\ 
-  \/_____/   \/_____/   \/_____/   \/_____/     \/_/ 
+ ______     ______     ______     __  __     ______
+/\  ___\   /\  ___\   /\  __ \   /\ \/\ \   /\__  _\
+\ \___  \  \ \ \____  \ \ \/\ \  \ \ \_\ \  \/_/\ \/
+ \/\_____\  \ \_____\  \ \_____\  \ \_____\    \ \_\
+  \/_____/   \/_____/   \/_____/   \/_____/     \/_/
 
-Scout is a contactless 'active' reconnaissance known vulnerability assessment tool.                                                                                
+Scout is a contactless 'active' reconnaissance known vulnerability assessment tool.
 """)
 
 
 def censys_search(censys_query):
 
     terms = ['ip', '80.http.get.metadata.description']
-    censys = CensysIPv4(api_id="",
-                        api_secret="")
+    keyfile = open('secrets.txt', 'r')
+    API_KEY = keyfile.readline().rstrip()
+    API_SECRET = keyfile.readline().rstrip()
+    keyfile.close()
+    censys = CensysIPv4(api_id="API_KEY",
+                        api_secret="API_SECRET")
     return censys.search(censys_query, fields=terms)
 
 

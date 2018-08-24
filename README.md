@@ -19,18 +19,43 @@ Scout is dependent on
 - pymongo
 
 ## Installation
+
 Scout requires a MongoDB instance containing the NVD's datafeeds. "[cve-search](https://github.com/cve-search/cve-search)" is highly reccomended. After installing cve-search:
 
+### Installing MongoDB
+
+Install & run MongoDB
+```
+brew install mongodb
+mkdir -p /data/db
+mongod
+```
+Then install [cve-search](https://github.com/cve-search/cve-search)
+
+Clone Scout into your local directory
 ```
 git clone https://github.com/TheHairyJ/Scout
+
+
+cd Scout
+
+pip install -r requirements.txt
 ```
-*Note: Editing of the source code may be required to correctly configure the database connection. Specifically the pymongo assignments.*  
+Place your censys API key and secret in a new file called secrets.txt
+
+
+*Note: Editing of the source code may be required to correctly configure the database connection. Specifically the pymongo assignments.*
+=======
+
 
 ## Usage
 To use Scout, provide a valid Censys query as a command line argument.
 ```
 python scout.py 192.168.0.0/16
 ```
+
+## License
+=======
 *Note: Scout is currently limited to services operating on port 80, this is due to information and API access provided by Censys.* 
 
 ## Thanks
