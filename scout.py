@@ -33,13 +33,9 @@ Scout is a contactless 'active' reconnaissance known vulnerability assessment to
 def censys_search(censys_query):
 
     terms = ['ip', '80.http.get.metadata.description']
-    keyfile = open('secrets.txt', 'r')
-    API_KEY = keyfile.readline().rstrip()
-    API_SECRET = keyfile.readline().rstrip()
-    keyfile.close()
-    censys = CensysIPv4(api_id="API_KEY",
-                        api_secret="API_SECRET")
-    return censys.search(censys_query, fields=terms)
+    fileOpen = open('secrets.txt', 'r').read().split(',')
+    return CensysIPv4(api_id=fileOpen[0],
+                        api_secret=fileOpen[1]).search(censys_query, fields=terms)
 
 
 def cpe_exception(cpe_string):
@@ -65,10 +61,8 @@ def cpe_exception(cpe_string):
             cpe_better.append(entry_id)
         elif len(setvar) == 2:
             lens = list(setvar)
-            len_0 = lens[0]
-            len_1 = lens[1]
-            if len(len_1 if len(len_1) > len(len_0) else len_0) \
-                    > editdistance.eval(len_0, len_1):
+            if len(lens[1] if len(lens[1]) > len(lens[0]) else lens[0]) \
+                    > editdistance.eval(lens[0], lens[1]):
                 cpe_good.append(entry_id)
     if len(cpe_better) == 1:
         return cpe_better[0]
@@ -102,6 +96,5 @@ def search_results(results_dict, gen):
 if __name__ == '__main__':
     results_dict = {}
     print_scout()
-    for x in censys_search(args.ip):
-        search_results(results_dict, x)
+    map(search_results, results_dict, censys_search(args.ip)
     pprint(results_dict, indent=4)
