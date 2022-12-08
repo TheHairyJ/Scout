@@ -1,6 +1,6 @@
 -i https://pypi.org/simple
 censys==0.0.8
-certifi==2018.8.13
+certifi==2022.12.7
 chardet==3.0.4
 editdistance==0.4
 idna==2.7
